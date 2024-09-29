@@ -2,20 +2,17 @@ name: someNewTask
 # on – определяет события, которые запускают воркфлоу
 on: push
 jobs:
-  # build – произвольно выбранное имя задания
-  # их может быть больше одного
-  build:
+
+  check:
     # операционная система для работы воркфлоу
     runs-on: ubuntu-latest
   
   steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        id: setup-node
-        uses: actions/setup-node@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
           cache: npm
@@ -23,5 +20,5 @@ jobs:
     - run: make setup
     - run: make test
 
-     - name: Print Hello from Hexlet
-       uses: hexlet-components/hello-from-hexlet-action@release
+    - name: Print Hello from Hexlet
+      uses: hexlet-components/hello-from-hexlet-action@release
