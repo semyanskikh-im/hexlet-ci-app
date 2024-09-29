@@ -8,14 +8,12 @@ jobs:
     runs-on: ubuntu-latest
   
   steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    uses: actions/checkout@v4
+    uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - run: npm ci
+    - run: npm test
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-
-    - run: make setup
-    - run: make test
-
-    - name: Print Hello from Hexlet
-      uses: hexlet-components/hello-from-hexlet-action@release
+  - name: Print Hello from Hexlet
+    uses: hexlet-components/hello-from-hexlet-action@release
