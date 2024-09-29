@@ -13,9 +13,6 @@ jobs:
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: npm
 
     - run: make setup
     - run: make test
